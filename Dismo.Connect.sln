@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dismo.Connect", "Dismo.Connect\Dismo.Connect.csproj", "{EEF46121-A3BE-48EB-A842-8F9C74E99549}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEF46121-A3BE-48EB-A842-8F9C74E99549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEF46121-A3BE-48EB-A842-8F9C74E99549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEF46121-A3BE-48EB-A842-8F9C74E99549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEF46121-A3BE-48EB-A842-8F9C74E99549}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {53A55BCA-7DE4-4E5D-AFDD-3B5E50ADA33E}
+	EndGlobalSection
+EndGlobal
