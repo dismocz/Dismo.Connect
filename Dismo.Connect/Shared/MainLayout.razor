@@ -1,17 +1,43 @@
 ﻿@inherits LayoutComponentBase
+@using MudBlazor
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MudThemeProvider Theme="DismoTheme"/>
+<MudDialogProvider />
+<MudSnackbarProvider />
 
-    <div class="main">
-        <div class="top-row px-4">
-            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-        </div>
-
-        <div class="content px-4">
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudText Typo="Typo.h5" Class="ml-3">CONNECT</MudText>
+        <MudAppBarSpacer />
+    </MudAppBar>
+    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+        <MudNavMenu>
+            <MudNavLink Href="/" Icon="@Icons.Filled.Home">Home</MudNavLink>
+            <MudNavLink Href="/devices" Icon="@Icons.Filled.BluetoothSearching">Devices</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        <MudContainer Class="mt-8 px-8" MaxWidth="MaxWidth.False">
             @Body
-        </div>
-    </div>
-</div>
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    MudTheme DismoTheme = new()
+    {
+        Palette = new Palette()
+        {
+            Primary = "#3fc1c9",
+            AppbarBackground = "#3fc1c9"
+        }
+    };
+}

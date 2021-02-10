@@ -1,0 +1,28 @@
+﻿@page "/devices"
+@using MudBlazor
+@using Blazm.Bluetooth
+@inject BluetoothNavigator Navigator
+@inject ISnackbar Snackbar
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="FindDevices">Discover</MudButton>
+
+@code {
+
+    Device device = null;
+
+    private async void FindDevices()
+    {
+        var query = new RequestDeviceQuery { AcceptAllDevices = true };
+
+        try
+        {
+            device = await Navigator.RequestDeviceAsync(query);
+
+            Snackbar.Add($"Successfully paired with {device.Name} ({device.Id}).");
+        }
+        catch (Exception e)
+        {
+            Snackbar.Add("Unable to pair device.", Severity.Error);
+        }
+    }
+}
