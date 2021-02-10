@@ -28,7 +28,13 @@ namespace Dismo.Connect
 
             builder.Services.AddSingleton<UriMaker>();
 
-            await builder.Build().RunAsync();
+            var host = builder.Build();
+
+            var uriMaker = host.Services.GetRequiredService<UriMaker>();
+
+            await uriMaker.InitializeAsync();
+
+            await host.RunAsync();
         }
     }
 }

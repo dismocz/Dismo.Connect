@@ -1,19 +1,27 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.JSInterop;
 
 namespace Dismo.Connect.Application
 {
     public class UriMaker
     {
-        private readonly NavigationManager _navigationManager;
+        private readonly IJSRuntime _jsRuntime;
+        private string _base;
 
-        public UriMaker(NavigationManager navigationManager)
+        public UriMaker(IJSRuntime jsRuntime)
         {
-            _navigationManager = navigationManager;
+            _jsRuntime = jsRuntime;
+        }
+
+        public async Task InitializeAsync()
+        {
+            _base = await _jsRuntime.InvokeAsync<string>("getBaseUri");
         }
 
         public string Route(string relative)
         {
-            return $"{_navigationManager.BaseUri}{relative}";
+            return $"{_base}{relative}";
         }
     }
 }
