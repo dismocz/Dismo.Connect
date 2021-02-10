@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
 @using MudBlazor
 
 <MudThemeProvider Theme="DismoTheme"/>
@@ -13,8 +14,8 @@
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <MudNavMenu>
-            <MudNavLink Href="/" Icon="@Icons.Filled.Home">Home</MudNavLink>
-            <MudNavLink Href="/devices" Icon="@Icons.Filled.BluetoothSearching">Devices</MudNavLink>
+            <MudNavLink Href="@NavigationManager.ToAbsoluteUri("").ToString()" Icon="@Icons.Filled.Home">Home</MudNavLink>
+            <MudNavLink Href="@NavigationManager.ToAbsoluteUri("devices").ToString()" Icon="@Icons.Filled.BluetoothSearching">Devices</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
     <MudMainContent>
