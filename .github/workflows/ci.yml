@@ -20,7 +20,11 @@ jobs:
 
         # Generate the website
         - name: Publish
-          run: dotnet publish Dismo.Connect/Dismo.Connect.csproj --configuration Release
+          run: |
+            dotnet tool update --global Meziantou.Framework.Html.Tool
+            meziantou.html replace-value --file Dismo.Connect/wwwroot/index.html --xpath "//base/@href" --new-value "/Dismo.Connect/"
+            cp Dismo.Connect/wwwroot/index.html Dismo.Connect/wwwroot/404.html
+            dotnet publish Dismo.Connect/Dismo.Connect.csproj --configuration Release
 
         # Publish the website
         - name: GitHub Pages action
