@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Blazm.Bluetooth;
+using Dismo.Connect.Application;
 using MudBlazor.Services;
 
 namespace Dismo.Connect
@@ -24,6 +25,8 @@ namespace Dismo.Connect
             builder.Services.AddMudServices();
 
             builder.Services.AddBlazmBluetooth();
+
+            builder.Services.AddSingleton<UriMaker>();
 
             await builder.Build().RunAsync();
         }

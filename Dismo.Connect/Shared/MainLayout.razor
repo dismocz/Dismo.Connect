@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
-@inject NavigationManager NavigationManager
+@inject UriMaker Uri;
 @using MudBlazor
+@using Dismo.Connect.Application
 
 <MudThemeProvider Theme="DismoTheme"/>
 <MudDialogProvider />
@@ -14,8 +15,8 @@
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <MudNavMenu>
-            <MudNavLink Href="@NavigationManager.ToAbsoluteUri("").ToString()" Icon="@Icons.Filled.Home">Home</MudNavLink>
-            <MudNavLink Href="@NavigationManager.ToAbsoluteUri("devices").ToString()" Icon="@Icons.Filled.BluetoothSearching">Devices</MudNavLink>
+            <MudNavLink Href="@Uri.Route("")" Icon="@Icons.Filled.Home">Home</MudNavLink>
+            <MudNavLink Href="@Uri.Route("devices")" Icon="@Icons.Filled.BluetoothSearching">Devices</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
     <MudMainContent>
