@@ -26,15 +26,9 @@ namespace Dismo.Connect
 
             builder.Services.AddBlazmBluetooth();
 
-            builder.Services.AddSingleton<UriMaker>();
+            builder.Services.AddSingleton<UriRouter>();
 
-            var host = builder.Build();
-
-            var uriMaker = host.Services.GetRequiredService<UriMaker>();
-
-            await uriMaker.InitializeAsync();
-
-            await host.RunAsync();
+            await builder.Build().RunAsync();
         }
     }
 }
