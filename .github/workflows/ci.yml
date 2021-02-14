@@ -42,7 +42,7 @@ jobs:
         - name: Slack Notification
           uses: rtCamp/action-slack-notify@v2
           env:
-            SLACK_CHANNEL: dev-release
+            SLACK_CHANNEL: '#dev-release'
             SLACK_COLOR: '#3278BD'
             SLACK_ICON: https://image.flaticon.com/icons/png/512/178/178158.png
             SLACK_MESSAGE: 'New release of Dismo is out :rocket:'
