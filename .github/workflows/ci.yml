@@ -48,4 +48,4 @@ jobs:
             SLACK_USERNAME: Marty
             SLACK_TITLE: Whoa!
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-            MSG_MINIMAL: ref,actions url,event
+            MSG_MINIMAL: commit
