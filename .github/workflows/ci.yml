@@ -43,8 +43,9 @@ jobs:
           uses: rtCamp/action-slack-notify@v2
           env:
             SLACK_CHANNEL: dev-release
-            SLACK_COLOR: '#3278BD'
-            SLACK_ICON: https://image.flaticon.com/icons/png/512/178/178158.png
+            SLACK_ICON: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgP_j-IAT76903gBgubaUQAZUjcEyOvhbssQ&usqp=CAU
             SLACK_MESSAGE: 'New release of Dismo is out :rocket:'
+            SLACK_USERNAME: Marty
             SLACK_TITLE: Whoa!
             SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            MSG_MINIMAL: ref,actions url,event
